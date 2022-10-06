@@ -1,0 +1,18 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Associar utilizadores:</h1>
+<ul>
+    <li *ngFor="let user of associatedUsers">
+        {{user.username}}
+        <button id="form-button" (click)="removeUser(user)">X</button>
+    </li>
+    <li>
+        <select [ngModel]="selectedUser" (ngModelChange)="setUser($event)">
+            <option [value]="alluser._id" *ngFor="let alluser of availableUsers">{{alluser.username}}</option>
+        </select>
+
+        <button (click)="addUser()">+</button>
+    </li>
+</ul>
+
+<button class="back" type="button" (click)="goBack()">Voltar</button>

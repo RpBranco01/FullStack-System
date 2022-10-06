@@ -1,0 +1,29 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Criar uma nova tarefa:</h1>
+
+<form [formGroup]="creationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name"> Nome da tarefa: </label>
+        <input id="name" type="text" formControlName="name" />
+    </div>
+
+    <div id="priority">
+        <label for="priority"> Prioridade: </label>
+        <!-- TODO: verify if this works properly -->
+        <select id="priority" formControlName="priority">
+            <option value="urgente">urgente</option>
+            <option value="alta">alta</option>
+            <option value="média">média</option>
+            <option value="baixa">baixa</option>
+        </select>
+    </div>
+
+    <button class="button" type="submit">Criar tarefa</button>
+</form>
+
+<div *ngIf="user">
+    <a routerLink="/task-list/{{this.user._id}}" class="back">
+        Voltar
+    </a>
+</div>

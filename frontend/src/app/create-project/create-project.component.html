@@ -1,0 +1,25 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1 id ="title">Criar um novo projeto:</h1>
+<form id = "container" [formGroup]="creationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="project-name">Nome: </label>
+        <input id="project-name" formControlName="name" placeholder="Nome do projeto" />
+    </div>
+    <div>
+        <label for="acronym">Acrónimo: </label>
+        <input id="acronym" formControlName="acronym" placeholder="Acrónimo do projeto" />
+    </div>
+    <div>
+        <label for="project-date-start">Data de início: </label>
+        <input id="start-date" formControlName="start" type="date" placeholder="Data de início" />
+    </div>
+    <div>
+        <label for="project-date-finish">Data de fim: </label>
+        <input id="finish-date" formControlName="finish" type="date" placeholder="Data de fim">
+    </div>
+
+    <button class="button" type="submit">Criar projeto</button>
+</form>
+
+<button class="back" type="button" (click)="goBack()">Voltar</button>

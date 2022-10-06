@@ -1,0 +1,16 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Criar uma nova equipa:</h1>
+
+<form [formGroup]="creationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name"> Nome: </label>
+        <input id="name" type="text" formControlName="name" />
+    </div>
+
+    <button class="button" type="submit">Criar Equipa</button>
+</form>
+
+<a routerLink="/admin" class="back">
+    Voltar
+</a>

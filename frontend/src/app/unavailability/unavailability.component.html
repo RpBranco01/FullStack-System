@@ -1,0 +1,24 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Definir indisponibilidade:</h1>
+
+<form id="container" [formGroup]="creationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="unavailability-date">Data: </label>
+        <input formControlName="date" type="date" />
+
+        <label for="unavailability-begin">Hora de início: </label>
+        <input formControlName="begin" type="time" />
+
+        <label for="unavailability-end">Hora de fim: </label>
+        <input formControlName="end" type="time" />
+    </div>
+
+    <button class="button" type="submit">Definir indisponibilidade</button>
+</form>
+
+<div *ngIf="user">
+    <a routerLink="/meetings/{{this.user._id}}" class="back">
+        Voltar
+    </a>
+</div>

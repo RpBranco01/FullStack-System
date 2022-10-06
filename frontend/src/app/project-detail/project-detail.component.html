@@ -1,0 +1,28 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<div *ngIf="project">
+    <h1>Detalhes do projeto {{project.acronym}}:</h1>
+    <div class="proj-details">
+        <h2>Nome: {{project.name}}</h2>
+    </div>
+
+    <div class="proj-details">
+        <div *ngIf="projectTeam">
+            <label>Nome da Equipa: {{projectTeam.name}}</label>
+        </div>
+        <div *ngIf="!projectTeam">
+            <label>Nome da Equipa: Não tem equipa associada</label>
+        </div>
+
+        <select [ngModel]="selected" (ngModelChange)="onChange($event)">
+            <option *ngIf="projectTeam" value="no-team">-- sem equipa --</option>
+            <option [value]="team._id" *ngFor="let team of availableTeams">{{team.name}}</option>
+        </select>
+
+    </div>
+
+    <button class="details-button" type="button" (click)="save()">Guardar</button>
+    <!-- <button class="details-button" type="button" (click)="takeOff()">Desassociar equipa atual</button> -->
+</div>
+
+<button class="back" type="button" (click)="goBack()">Voltar</button>

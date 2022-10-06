@@ -1,0 +1,23 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<a *ngIf="user" routerLink="/create-task/{{user._id}}" class="button">
+    Criar Tarefa
+</a>
+<a *ngIf="user" routerLink="/schedule/{{user._id}}" class="button">
+    Ver Agenda
+</a>
+<a *ngIf="user" routerLink="/meetings/{{user._id}}" class="button">
+    Reuniões
+</a>
+
+<h1>As minhas tarefas:</h1>
+<ul>
+    <li *ngFor="let task of tasks" class="task-list">
+        <a class="button" routerLink="/task-detail/{{task._id}}">
+            Nome: {{ task.name }} | Prioridade: {{ task.priority }} | Progresso: {{ task.progress }}%
+        </a>
+        <button class="remove-button" (click)="removeTask(task)">X</button>
+    </li>
+</ul>
+
+<a *ngIf="user" class="back" routerLink="/all-tasks/{{user._id}}">ver todas</a>

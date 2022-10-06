@@ -1,0 +1,32 @@
+/* #title{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#container{
+    display: grid;
+    justify-content: center;
+    
+    height: 100%;
+    width: 100%;
+    
+}
+
+.button{
+    position: fixed;
+  bottom:250px;
+  right: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.back{
+    position: fixed;
+  bottom:250px;
+  left: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+} */

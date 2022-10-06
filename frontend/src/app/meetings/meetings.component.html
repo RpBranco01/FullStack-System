@@ -1,0 +1,15 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<nav>
+    <a *ngIf="user" routerLink="/set-meeting/{{this.user._id}}" class="button">
+        Criar reunião
+    </a>
+
+    <a *ngIf="user" routerLink="/unavailability/{{this.user._id}}" class="button">
+        Definir indisponibilidade
+    </a>
+</nav>
+
+<a *ngIf="user" routerLink="/task-list/{{this.user._id}}" class="back">
+    Voltar
+</a>

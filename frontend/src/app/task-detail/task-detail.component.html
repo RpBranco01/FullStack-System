@@ -1,0 +1,68 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<div *ngIf="task">
+    <h1>Detalhes da Tarefa:</h1>
+    <div class="task-details">
+        <h2 class="task-d">Nome: {{task.name}}</h2>
+    </div>
+
+
+
+    <div class="task-d">
+        <div *ngIf="project">
+            <label>Nome do Projeto: {{project.name}}</label>
+        </div>
+        <div *ngIf="!project">
+            <label>Nome da Projeto: Não tem projeto associada</label>
+        </div>
+
+        <select [ngModel]="selected" (ngModelChange)="onChange($event)">
+            <option *ngIf="project" value="-- sem projeto --">-- sem projeto --</option>
+            <option [value]="project._id" *ngFor="let project of availableProjects">{{project.name}}</option>
+        </select>
+    </div>
+    <button class="details-button" type="button" (click)="save()">Guardar Associação</button>
+
+
+
+    <form id="container" [formGroup]="creationForm" (ngSubmit)="saveDates()">
+        <div>
+            <label for="task-start">Início de tarefa: {{task.start_date}}</label>
+            <input formControlName="start" id="task-start" type="datetime-local" placeholder="Data de início" />
+        </div>
+        <div>
+            <label for="task-finish">Fim de tarefa: {{task.finish_date}}</label>
+            <input formControlName="finish" id="task-finish" type="datetime-local" placeholder="Data de fim" />
+        </div>
+    </form>
+    <button class="details-button" type="button" (click)="saveDates()">Guardar Datas</button>
+
+
+
+    <form id="container" [formGroup]="creationForm" (ngSubmit)="saveProgress()">
+        <div>
+            <label>Progresso da tarefa : {{task.progress}} </label>
+            <label>Atualize o progresso(0-100):</label>
+            <input formControlName="progress" id="progress" placeholder={{task.progress}} />
+        </div>
+    </form>
+    <button class="details-button" type="button" (click)="saveProgress()">Guardar Progresso</button>
+
+
+
+    <h2 class="task-d">Associar utilizadores:</h2>
+    <ul>
+        <li *ngFor="let user of associatedUsers">
+            {{user.username}}
+            <button id="form-button" (click)="removeUser(user)">X</button>
+        </li>
+        <li>
+            <select [ngModel]="selectedUser" (ngModelChange)="setUser($event)">
+                <option [value]="alluser._id" *ngFor="let alluser of availableUsers">{{alluser.username}}</option>
+            </select>
+            <button (click)="addUser()">+</button>
+        </li>
+    </ul>
+</div>
+
+<button class="back" type="button" (click)="goBack()">Voltar</button>

@@ -1,0 +1,10 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h2 class="meet-d">Datas disponíveis:</h2>
+<ul>
+    <li *ngFor="let date of availableDates" class="task-list">
+        <a class="button" type="button" (click)="chooseDate(date)"> Data: {{ date }} </a>
+    </li>
+</ul>
+
+<button class="back" type="button" (click)="goBack()">Voltar</button>

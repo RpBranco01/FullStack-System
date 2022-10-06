@@ -1,0 +1,15 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Projetos:</h1>
+
+<ul class="project-list">
+    <li *ngFor="let project of projects">
+        <a routerLink="/project-detail/{{project._id}}" id="proj-list">
+            <span class="badge"></span> {{project.acronym}} ({{project.name}})
+        </a>
+    </li>
+</ul>
+
+<a routerLink="/admin" class="back">
+    Voltar
+</a>

@@ -1,0 +1,15 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Equipas:</h1>
+
+<ul class="project-list">
+    <li *ngFor="let team of teams">
+        <a routerLink="/team-details/{{team._id}}" id="team-list">
+            <span class="badge"></span> {{team.name}}
+        </a>
+    </li>
+</ul>
+
+<a routerLink="/admin" class="back">
+    Voltar
+</a>

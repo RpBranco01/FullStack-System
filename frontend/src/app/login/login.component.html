@@ -1,0 +1,17 @@
+<app-top-bar-home></app-top-bar-home>
+
+<h1>Iniciar sessão:</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login_form">
+  <div>
+    <label for="username"> Nome de utilizador: </label>
+    <input id="username" type="text" formControlName="username" />
+  </div>
+
+  <div>
+    <label for="password"> Palavra-chave: </label>
+    <input id="password" type="password" formControlName="password">
+  </div>
+
+  <button class="button" type="submit">Iniciar Sessão</button>
+</form>

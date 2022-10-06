@@ -1,0 +1,31 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Criar um novo utilizador:</h1>
+
+<form [formGroup]="creationForm" (ngSubmit)="onSubmit()" id="login_form">
+    <div>
+        <label for="username"> Nome do utilizador: </label>
+        <input id="username" type="text" formControlName="username" />
+    </div>
+
+    <div>
+        <label for="password"> Palavra-chave: </label>
+        <input id="password" type="password" formControlName="password" />
+    </div>
+
+    <button class="button" type="submit">Criar novo utilizador</button>
+</form>
+
+<div id="reqs">
+    <label for="reqs"> Requisitos: </label>
+    <ul>
+        <li>O nome de utilizador só pode ter caracteres alfanuméricos e deve ter três caracteres no mínimo.</li>
+        <li>O nome de utilizador deve ser único na plataforma.</li>
+        <li>A senha deve ter oito ou mais caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula e um
+            algarismo.</li>
+    </ul>
+</div>
+
+<a routerLink="/admin" class="back">
+    Voltar
+</a>

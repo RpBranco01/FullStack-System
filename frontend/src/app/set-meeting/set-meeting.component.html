@@ -1,0 +1,56 @@
+<app-top-bar-logout></app-top-bar-logout>
+
+<h1>Criar reuniao:</h1>
+
+<div>
+    <h2 class="meet-d">Adicionar utilizadores:</h2>
+    <ul>
+        <li *ngFor="let user of selectedUsers">
+            {{user.username}}
+            <button id="form-button" (click)="removeUser(user)">X</button>
+        </li>
+        <li>
+            <select [ngModel]="selectedUser" (ngModelChange)="setUser($event)">
+                <option [value]="alluser._id" *ngFor="let alluser of availableUsers">{{alluser.username}}</option>
+            </select>
+
+            <button (click)="addUser()">+</button>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <h2 class="meet-d">Definir duração:</h2>
+    <form id="container" [formGroup]="creationForm" (ngSubmit)="setDuration()">
+        <div>
+
+            <label>Definir duração da reunião (múltiplos de 30): {{duration}} minutos</label>
+
+            <input formControlName="duration" id="duration" />
+
+        </div>
+    </form>
+    <button id="dur" (click)="setDuration()"> Definir duração</button>
+</div>
+
+<div>
+    <h2 class="meet-d">Escolher data:</h2>
+    <form id="container" [formGroup]="creationForm" (ngSubmit)="saveDates()">
+
+        <div>
+            <label for="task-start">Data de ínicio: {{start_date}}</label>
+            <input formControlName="start" id="task-start" type="date" placeholder="Data de início" />
+        </div>
+        <div>
+            <label for="task-finish">Data de fim: {{finish_date}}</label>
+            <input formControlName="finish" id="task-finish" type="date" placeholder="Data de fim" />
+        </div>
+
+    </form>
+
+    <button id="dates" class="button" type="button" (click)="saveDates()">Procurar datas</button>
+</div>
+
+<a *ngIf="user" routerLink="/meetings/{{this.user._id}}" class="back">
+    Voltar
+</a>
