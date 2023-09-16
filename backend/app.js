@@ -7,10 +7,7 @@ var app = express();
 //CONNECT TO DB
 var mongoose = require('mongoose');
 
-var mongoDB = "mongodb+srv://vasco2001:vasco2001@rest.h0djr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-//var mongoDB = 'mongodb+srv://manuel:123@cluster0.mwbfv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-//var mongoDB = 'mongodb://psi015:psi015@localhost:27017/psi015?retryWrites=true&authSource=psi015';
-//var mongoDB = 'mongodb+srv://rodas2001:rodas2001@cluster0.zb3qz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+//var mongoDB = *USE SERVER ID HERE*
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
